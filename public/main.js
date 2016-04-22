@@ -84,9 +84,9 @@ function editPost() {
 
   $.ajax(settings).done(function (response) {
     console.log(response);
+    location.reload();
   });
   $('.modal').modal('hide');
-  location.reload();
 }
 
 function deletePost(){
