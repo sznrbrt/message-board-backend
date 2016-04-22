@@ -38,6 +38,8 @@ function openEditPost() {
 }
 
 function editPost() {
+  $('.posts').empty();
+  renderPosts();
   var post = {};
 
   newPost.addedT = moment().format('MMMM Do YYYY, h:mm a').split(',');
