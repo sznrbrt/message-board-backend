@@ -1,0 +1,48 @@
+extends ./board.jade
+
+block posts
+    +post('post.name', '', '', '', '')
+
+//- Mixin for a post
+mixin post(name, day, time, imgUrl, content)
+  div.row
+    div.col-xs-12.col-md-12.posts
+      div.row.postItem.template
+        div.panel.panel-default.post.center
+          div.panel-heading Added by 
+            a(href='').name #{name}
+            span.date 
+              span.day #{day}
+              span.time #{time}
+          div.panel-body 
+            div.row
+              div.col-xs-2.imageBox
+                img.postImage(src=imgUrl, alt="")
+              div.col-xs-9.postBody
+                div.postContent #{content}
+              div.col-xs-1.deleteBody 
+                button.deleteButton
+                  span.glyphicon.glyphicon-trash
+                button.editButton(data-toggle='modal', data-target='.bs-edit-modal-sm') 
+                  span.glyphicon.glyphicon-pencil       
+    div.modal.fade.bs-edit-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+      div.modal-dialog(role='document')
+        div.modal-content
+          div.modal-header.text-center
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4.modal-title Edit post
+          div.modal-body.text-center
+            form#edit-Post(action='')
+              #edit-name.input-group.topMargin
+                span.input-group-addon.atLeastWidth Name
+                input#edit-input-name.form-control(type='text', placeholder='E.g.: John Doe')
+              #edit-url.input-group.topMargin
+                span.input-group-addon.atLeastWidth Image Url
+                input#edit-input-url.form-control(type='text', placeholder='E.g: https://www.photoabout.me')
+              .form-group
+                label(for='comment') Post:
+                textarea#edit-input-post.form-control(rows='5')
+          div.modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            button#editPost.btn.btn-primary(type='button') Edit

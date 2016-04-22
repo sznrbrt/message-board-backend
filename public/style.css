@@ -1,0 +1,171 @@
+body {
+  background-color: #CCDBE9;
+  color:#23527C;
+  font-family: 'Lato', sans-serif;
+}
+
+.splashLogo {
+  margin: 50px;
+  margin-bottom: 20px;
+  font-size: 1000%;
+}
+
+.wholePage {
+  height:100%;
+}
+
+.verticalMiddle{
+    width:600px;
+    height:200px;
+    position:absolute;
+    left:30%;
+    top:30%;
+    margin:-100px 0 0 -150px;
+}
+
+.continue {
+  border: 2px solid #23527C;
+  background-color: transparent;
+  padding: 10px 50px;
+  font-size: 1.3em;
+  color: #23527C;
+}
+
+.continue:hover {
+  color: white;
+  background-color: #23527C;
+}
+
+.welcome {
+  margin-bottom: 30px;
+}
+
+.topper {
+  background-color: #314253;
+  height:100px;
+  box-shadow: 2px 2px 5px #888888;
+}
+
+.noBorPad {
+  padding: 0;
+  border: 0;
+}
+
+.boardTitle {
+  margin: 0;
+  padding: 0;
+  color: white;
+  line-height: 100px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.boardLogo {
+  color:white;
+  margin-right: 15px;
+  line-height: 100px;
+  vertical-align: middle;
+  font-size: 180%;
+}
+
+.post {
+  max-width: 700px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newPost {
+  margin-top: 10px;
+  width: 61.5%;
+  max-width: 700px;
+  border: none;
+  background-color: #314253;
+  padding: 5px 50px;
+  font-size: 1.3em;
+  color: white;
+}
+
+.newPost:hover {
+  color: #FF6D54;
+  background-color: #314253;
+}
+
+.newPostIcon {
+  font-size: 90%;
+  margin-right: 10px;
+  position: relative;
+  top:2px;
+}
+
+.date {
+  float:right;
+  vertical-align: middle;
+}
+
+.name {
+  color: #314253;
+}
+
+.time {
+  font-size: 100%;
+}
+
+.day {
+  font-size: 80%;
+  margin-right: 5px;
+}
+
+.postImage {
+  border-radius: 10px;
+}
+
+.topMargin {
+  margin-top: 10px;
+}
+
+.atLeastWidth {
+  min-width: 85px;
+}
+
+textarea {
+  resize: none;
+  height: auto;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.postImage {
+  width: 100px;
+  height: 100px;
+}
+
+.btn:focus {
+  outline: none;
+  background-color: #314253;
+  color: white;
+}
+
+.template {
+  display: none;
+}
+
+.deleteButton, .editButton {
+  background-color: transparent;
+  border: none;
+}
+
+.deleteButton {
+  margin-bottom: 5px;
+}
+
+.deleteBody {
+  margin-left: 1px solid grey;
+}

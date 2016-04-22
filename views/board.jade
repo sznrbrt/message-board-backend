@@ -1,0 +1,38 @@
+extends ./layout.jade
+
+block content
+  .container-fluid
+    div.row
+      div.col-xs-12.col-md-12.noBorPad
+        div.topper.text-center
+          span.glyphicon.glyphicon-list-alt.boardLogo
+          h1.boardTitle Message Board
+    div.row
+      div.col-xs-12.col-md-12
+        div.row.text-center
+          button.btn.btn-default.newPost(data-toggle='modal', data-target='.bs-example-modal-sm') 
+            span.glyphicon.glyphicon-pencil.newPostIcon
+            |  New post
+    block posts
+    
+  div.modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+    div.modal-dialog(role='document')
+      div.modal-content
+        div.modal-header.text-center
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h4.modal-title New Post
+        div.modal-body.text-center
+          form#newPost(action='')
+            #name.input-group.topMargin
+              span.input-group-addon.atLeastWidth Name
+              input#input-name.form-control(type='text', placeholder='E.g.: John Doe')
+            #url.input-group.topMargin
+              span.input-group-addon.atLeastWidth Image Url
+              input#input-url.form-control(type='text', placeholder='E.g: https://www.photoabout.me')
+            .form-group
+              label(for='comment') Post:
+              textarea#post.form-control(rows='5')
+        div.modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Close
+          button#addPost.btn.btn-primary(type='button') Add

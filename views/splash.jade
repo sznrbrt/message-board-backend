@@ -1,0 +1,14 @@
+extends ./layout.jade
+
+block content
+  .container
+    div.col-xs-12.text-center.wholePage
+      div.row
+        div.verticalMiddle
+          div.row
+          span.glyphicon.glyphicon-list-alt.splashLogo  
+          div.row
+            h1.welcome Welcome to Message Board!
+          div.row
+            form(action='/board')
+              button(type='submit').btn.btn-default.continue Continue to Site
