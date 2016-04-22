@@ -154,21 +154,19 @@ function addPost() {
   }
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
+    var $postItem = createPostItem(newPost.name, newPost.url, newPost.post, newPost.day, newPost.time, response);
+
+    $postItem.addClass('animated slideInRight').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+              $($postItem).removeClass('animated ' + 'slideInRight');
+          });
+
+    $('.posts').append($postItem);
+    $('.modal').modal('hide');
+    $('.newPost').addClass('animated rubberBand').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+              $('.newPost').removeClass('animated ' + 'rubberBand');
+          });
+    $('.has-error').removeClass('has-error');
   });
-
-  var $postItem = createPostItem(newPost.name, newPost.url, newPost.post, newPost.day, newPost.time, newPost.id);
-
-  $postItem.addClass('animated slideInRight').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $($postItem).removeClass('animated ' + 'slideInRight');
-        });
-
-  $('.posts').append($postItem);
-  $('.modal').modal('hide');
-  $('.newPost').addClass('animated rubberBand').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $('.newPost').removeClass('animated ' + 'rubberBand');
-        });
-  $('.has-error').removeClass('has-error');
 }
 
 function createPostItem(name, url, post, day, time, uuid) {

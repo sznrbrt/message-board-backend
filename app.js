@@ -34,9 +34,9 @@ app.route('/api/posts')
   })
   .post((req, res, next) => {
     //create a new post
-    Post.create(req.body, err => {
+    Post.create(req.body, (err, id) => {
       if(err) return res.status(400).send(err);
-      res.send(null);
+      res.send(id);
     });
   })
 

@@ -54,7 +54,7 @@ exports.create = function(post, callback) {
       if(err) {
         return callback(err);
       }
-      callback(err);
+      callback(err, newPost.id);
     });
 
   });
