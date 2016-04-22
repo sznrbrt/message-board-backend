@@ -66,7 +66,7 @@ function editPost() {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:3000/api/posts/" + id,
+    "url": "./api/posts/" + id,
     "method": "PUT",
     "headers": {
       "cache-control": "no-cache",
@@ -95,7 +95,7 @@ function deletePost(){
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:3000/api/posts/" + id,
+    "url": "./api/posts/" + id,
     "method": "DELETE",
     "headers": {
       "cache-control": "no-cache",
