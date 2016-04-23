@@ -1,5 +1,9 @@
 'use strict';
 
+$.fn.filterByData = function(prop, val) {
+    return this.filter(function() { return $(this).data(prop)==val; });
+}
+
 $(function() {
   $('#addPost').on('click', addPost);
   $('.posts').on('click', '.deleteButton', deletePost);
@@ -50,16 +54,16 @@ function editPost() {
   post.day = newPost.addedT[0] + ', ';
   post.time = newPost.addedT[1];
 
-  if(newPost.name == '@') {
-    $('#name').addClass('has-error');
+  if(post.name == '') {
+    $('#edit-name').addClass('has-error');
     return;
   }
 
-  if(newPost.post == '') {
+  if(post.post == '') {
     $('#post').text('This will be an empty post. Are you sure?');
     return;
   }
-  if(newPost.post === 'This will be an empty post. Are you sure?') {
+  if(post.post === 'This will be an empty post. Are you sure?') {
     newPost.post = "";
   }
 
@@ -84,9 +88,12 @@ function editPost() {
 
   $.ajax(settings).done(function (response) {
     console.log(response);
-    $('.posts').empty();
-    renderPosts();
-    location.reload();
+    var $editedPost = $(".aPost").filterByData('uuid', id);
+    $editedPost.find('.name').text(post.name);
+    $editedPost.find('.postImage').attr('src', post.imgUrl);
+    $editedPost.find('.postContent').text(post.content);
+    $editedPost.find('.day').text(post.day);
+    $editedPost.find('.time').text(post.time);
   });
   $('.modal').modal('hide');
 }
@@ -121,7 +128,7 @@ function addPost() {
   newPost.day = newPost.addedT[0] + ', ';
   newPost.time = newPost.addedT[1];
 
-  if(newPost.name == '@') {
+  if(newPost.name == '') {
     $('#name').addClass('has-error');
     return;
   }
